@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Button, Result } from 'antd';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const NotFound = memo(() => {
 

@@ -1,0 +1,29 @@
+.addUser{
+    width: 500px;
+    position: relative;
+    margin: 0 auto;
+}
+.title {
+    font-weight: 300;
+    color: #222;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+.subTitle {
+    color: #666;
+    font-size: 16px;
+}
+.subDescribe {
+    font-size: 12px;
+    color: #666;
+    margin-left: 10px;
+}
+.subPermission {
+    padding-bottom: 20px;
+    // padding-left: 20px;
+}
+.opt_bot {
+    width: 100%;
+    padding-top: 30px;
+    text-align: right;
+}

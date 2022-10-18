@@ -5,18 +5,19 @@ import { Input, notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-  const { login } = Auth();
+  const { getSession } = Auth();
   const navigate = useNavigate();
   const inputRef = useRef(null);
   // console.log(Auth(), 'Auth()');
 
   const jump = async () => {
-    await login({
-      email: "cui.jiang@citcon.cn",
-      password: "Citcon@123"
-    });
+    // await login({
+    //   email: "cui.jiang@citcon.cn",
+    //   password: "Citcon@123"
+    // });
+    await getSession();
     // console.log(res, 'login---res');
-    navigate('/home')
+    navigate('/')
   }
 
   useEffect(()=>{

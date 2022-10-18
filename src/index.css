@@ -1,3 +1,9 @@
+@import url('./assets/css/animate.css');
+html,body,#root{
+  height: 100%;
+  width: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +17,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pageMain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  overflow: auto;
+}
+
+.pageTitle {
+  font-weight: 300;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.table_ops {
+  width: 100px;
+}
+.table_ops > span {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.table_ops > span:hover {
+  color: #448EF7;
+}
+
+#nprogress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 9999;
+}
+
+#nprogress .bar {
+  background: rgb(51, 105, 253);
+  height: 5px;
+}
+

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Outlet, useLocation, useOutlet } from 'react-router-dom';
+import { useLocation, useOutlet } from 'react-router-dom';
 import Header from './header';
 import SideMenu from './sideMenu';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';

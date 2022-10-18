@@ -1,19 +1,19 @@
 import { Navigate } from 'react-router-dom';
-import { HomeOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { DashboardOutlined, UserOutlined, TeamOutlined, UserAddOutlined, ShopOutlined, FileProtectOutlined, SearchOutlined, PlusOutlined, TrademarkCircleOutlined, FileTextOutlined, FileAddOutlined, PlusSquareOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
 import { RequireAuth } from './Auth';
-import PageA from '../views/pageA';
-import PageB from '../views/pageB';
-import PageC from '../views/pageC';
 import Layout from '../layout';
-// import Home from '../views/Home';
-import List from '../views/List';
+import Landing from '../views/Landing';
 import Login from '../views/Login';
 import NotFound from '../views/NotFound';
+
+import User from '../views/User';
+import AddUser from '../views/AddUser';
+import MerchantSearch from '../views/MerchantSearch';
 
 const routes = [
     {
         path: '/',
-        element: <Navigate to='home' />
+        element: <Navigate to='landing' />
     },
     {
         path: '/login',
@@ -29,53 +29,117 @@ const routes = [
         rootMenu: true,
         children: [
             {
-                path: 'home',
-                title: 'HOME',
-                key: 'home',
-                icon: <HomeOutlined />,
-                // element: <Home />,
+                path: 'landing',
+                title: 'Landing',
+                key: 'landing',
+                icon: <DashboardOutlined />,
+                element: <Landing />
+            },
+            {
+                path: 'userManage',
+                title: 'User Manage',
+                key: 'userManage',
+                icon: <UserOutlined />,
                 children: [
                     {
-                        path: 'home_a',
-                        title: 'home_a',
-                        key: 'home_a',
-                        element: <PageA />
+                        path: 'users',
+                        title: 'Users',
+                        key: 'users',
+                        icon: <TeamOutlined />,
+                        element: <User />
                     },
                     {
-                        path: 'home_b',
-                        title: 'home_b',
-                        key: 'home_b',
-                        // element: <PageB />
-                        children:[
-                            {
-                                path: 'home_b_son_b',
-                                title: 'home_b_son_b',
-                                key: 'home_b_son_b',
-                                element: <PageB />
-                            }
-                        ]
-                    },
-                    {
-                        path: 'home_c',
-                        title: 'home_c',
-                        key: 'home_c',
-                        element: <PageC />
-                    },
-                    {
-                        path: '',
-                        title: 'root_NotFound',
-                        key: 'root_NotFound',
-                        element: <NotFound />,
+                        path: 'new',
+                        title: 'Add New User',
+                        key: 'add_new_user',
+                        icon: <UserAddOutlined />,
+                        element: <AddUser />
                     },
                 ]
             },
             {
-                path: 'list',
-                title: 'LIST',
-                key: 'list',
-                icon: <UnorderedListOutlined />,
-                element: <List />
+                path: 'merchantManage',
+                title: 'Merchant Manage',
+                key: 'merchantManage',
+                icon: <ShopOutlined />,
+                children: [
+                    {
+                        path: 'kyc',
+                        title: 'Merchant Underwriting',
+                        key: 'merchantUnderwriting',
+                        icon: <FileProtectOutlined />,
+                    },
+                    {
+                        path: 'search',
+                        title: 'Search Merchant',
+                        key: 'serachMerchant',
+                        icon: <SearchOutlined />,
+                        element: <MerchantSearch />,
+                    },
+                    {
+                        path: 'newMerchant',
+                        title: 'Add New Merchant',
+                        key: 'addNewMerchant',
+                        icon: <PlusOutlined />,
+                    },
+                    {
+                        path: 'vendorKey',
+                        title: 'Add New Vendor Key',
+                        key: 'addNewVendorKey',
+                        icon: <PlusOutlined />,
+                    },
+                    {
+                        path: 'addCompany',
+                        title: 'Add Parent Company/Brand',
+                        key: 'addParentCompany',
+                        icon: <TrademarkCircleOutlined />,
+                    },
+                    {
+                        path: 'partnerBoarding',
+                        title: 'Manage Partner Boarding',
+                        key: 'managePartnerBoarding',
+                        icon: <FileTextOutlined />,
+                    }
+                ]
             },
+            {
+                path: 'batch',
+                title: 'Batch Merchant',
+                key: 'bacthMerchant',
+                icon: <FileAddOutlined />,
+                children: [
+                    {
+                        path: 'new',
+                        title: 'Batch Onboarding',
+                        key: 'newBacthOnboarding',
+                        icon: <PlusSquareOutlined />,
+                    },
+                    {
+                        path: 'update',
+                        title: 'Batch Update Merchants',
+                        key: 'newBacthUpdateMerchants',
+                        icon: <PlusSquareOutlined />,
+                    }
+                ]
+            },
+            {
+                path: 'disputemanage',
+                title: 'Dispute Management',
+                key: 'disputemanage',
+                icon: <SearchOutlined />,
+            },
+            {
+                path: 'changePassword',
+                title: 'Change Password',
+                key: 'changePassword',
+                icon: <SettingOutlined />,
+            },
+            {
+                path: 'logOut',
+                title: 'Log Out',
+                key: 'logOut',
+                icon: <LogoutOutlined />,
+            }
         ]
     },
     {

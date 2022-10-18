@@ -1,0 +1,28 @@
+.searchBox {
+  width: 90%;
+  max-width: 800px;
+  min-height: 80px;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba($color: #444, $alpha: .15);
+  .tips {
+    width: 100%;
+    text-align: left;
+    color: #999;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .searchOpt {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+
+  }
+}
+
+.merchantBox {
+  margin-top: 20px;
+  width: 100%;
+}
+

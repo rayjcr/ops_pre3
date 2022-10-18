@@ -79,9 +79,9 @@ export const getConfirmation = (mes='', callback = () => {}) => {
 
 service.interceptors.request.use(
     config => {
-        config.headers.Authorization = 'Basic c2FiZXI6c2FiZXJfc2VjcmV0';
-        config.headers['Blade-Auth'] = `bearer ${sessionStorage.getItem('token')}`;
-        
+        // config.headers.Authorization = 'Basic c2FiZXI6c2FiZXJfc2VjcmV0';
+        // config.headers['Blade-Auth'] = `bearer ${sessionStorage.getItem('token')}`;
+        config.headers['session_token'] = '56e111d29dc934b4438b200cde2f113d';
         if(!nProgress.status) {
             nProgress.start();
         }
@@ -119,8 +119,8 @@ service.interceptors.response.use(
         // console.log(pending[decodeURI(key)], 'pending-response-B');
         // console.log(key, 'key-response')
         // console.log(allPendingRequestsRecord, 'allPendingRequestsRecord');
-        console.log(allPendingRequestsRecord, 'allPendingRequestsRecord-response');
-        console.log(pending, 'pending-response');
+        // console.log(allPendingRequestsRecord, 'allPendingRequestsRecord-response');
+        // console.log(pending, 'pending-response');
         // console.log(response, '这里是结果')
         // return response
         if(response.status === 200){

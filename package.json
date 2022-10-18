@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.22.8",
     "axios": "^0.27.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "node-sass": "^7.0.1",
     "nprogress": "^0.2.0",
     "rc-queue-anim": "^2.0.0",

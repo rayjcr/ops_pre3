@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext, useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { login } from '../api/index';
+import { login, getSessions } from '../api/index';
 import { fetchUserInfo, setState } from "../store/appSlice";
 import { Skeleton, notification } from "antd";
 import store from "../store";
@@ -38,6 +38,13 @@ const useAuth = () => {
       dispatch(setState({userInfo: res.data}));
       // console.log(userInfo, 'userInfo')
       // return 233
+    },
+    async getSession() {
+      let res = await getSessions();
+      window.sessionStorage.setItem('SessionID','56e111d29dc934b4438b200cde2f113d');
+      // window.sessionStorage.setItem('userInfo',JSON.stringify(res.data.data.user_info));
+      dispatch(setState({userInfo: res.data.data.user_info}));
+      console.log(res, 'getSessions');
     },
     logout() {
       return new Promise((res) => {
@@ -136,12 +143,17 @@ export function RequireAuth({ children }) {
     
     if(checkUserInfo){
       setStatus('success');
-    } else if (sessionStorage.getItem('userInfo')) {
+    } else if (sessionStorage.getItem('SessionID')) {
+      getSessions().then(res => {
+        // 这里需要做一个userInfo的二次验证过程, 验证通过在调用 setState
+        dispatch(setState({userInfo: res.data.data.user_info}));
+        setStatus('success');
+      });
       // 这里需要做一个userInfo的二次验证过程, 验证通过在调用 setState
-      dispatch(setState({userInfo: JSON.parse(sessionStorage.getItem('userInfo'))}));
-      setStatus('success');
+      // dispatch(setState({userInfo: JSON.parse(sessionStorage.getItem('userInfo'))}));
+      // setStatus('success');
     } else {
-      window.location.href = '/login';
+      // window.location.href = '/login';
     }
   }, [dispatch, userInfo])
   

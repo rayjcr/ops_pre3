@@ -1,5 +1,9 @@
 import request from '../utils/request';
-const dashboardUrl = 'http://localhost:8400/api'
+import { userList } from './mock.js';
+
+const dashboardUrl = 'http://localhost:3001/api';
+const opsToolUrl = 'http://localhost:9003/api';
+
 
 // 根据用户名，密码获取用户信息、Token
 export async function getToken(params) {
@@ -45,4 +49,23 @@ export async function login(data) {
         method: 'POST',
         data,
     })
+}
+
+export async function getSessions() {
+    return request(`${opsToolUrl}/users/sessions`, {
+        method: 'GET',
+    })
+}
+
+export async function getSearchMerchant(params) {
+    return request(`${opsToolUrl}/merchants/`, {
+        method: 'GET',
+        params,
+    })
+}
+
+export async function getUserList() {
+    return {
+        data: userList,
+    }
 }

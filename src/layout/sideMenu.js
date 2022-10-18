@@ -19,10 +19,10 @@ import { addRealPath } from '../utils/tools';
 //   </>
 // })
 
-const Menu = memo(({ itemMenu, clickMenu }) => {
+const Menu = memo(({ itemMenu, clickMenu, level }) => {
   return <>
     {itemMenu.isShow && <>
-      <div className={[css.menu, itemMenu.active && css.active].join(' ')} onClick={()=>clickMenu(itemMenu)}>{itemMenu.icon} {itemMenu.title}</div>
+      <div className={[css.menu, itemMenu.active && css.active].join(' ')} style={{textIndent:level*10+'px'}} onClick={()=>clickMenu(itemMenu)}>{itemMenu.icon} {itemMenu.title}</div>
       {itemMenu.children && itemMenu.children.map(item => {
         return (
           <CSSTransition
@@ -33,7 +33,7 @@ const Menu = memo(({ itemMenu, clickMenu }) => {
             appear = {true}
             key={item.title}
           >
-            <Menu key={item.title} clickMenu={clickMenu} itemMenu={item}/>
+            <Menu key={item.title} clickMenu={clickMenu} itemMenu={item} level={level+1}/>
           </CSSTransition>
         )
       })}
@@ -161,12 +161,15 @@ const SideMenu = memo(() => {
     setRealMenu();
   }, [addRealPath, location.pathname])
   
+  useEffect(() => {
+    setMenu([]);
+  },[])
 
   return (
     <div className={css.sideMenu}>
       <TransitionGroup>
         {menu.map(item => {
-          return <Menu key={item.title} clickMenu={clickMenu} itemMenu={item} />
+          return <Menu key={item.title} clickMenu={clickMenu} itemMenu={item} level={0} />
         })}
       </TransitionGroup>
     </div>

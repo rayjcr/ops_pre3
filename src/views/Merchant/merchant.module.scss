@@ -1,0 +1,19 @@
+.CollapseHeader {
+    font-size: 14px;
+    font-weight: 300; 
+    :global {
+        .ant-collapse-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    } 
+}
+
+.MerchantForm {
+    :global{
+        .ant-form-item-label{
+            word-break: break-all;
+            white-space: break-spaces;
+        }
+    }
+}

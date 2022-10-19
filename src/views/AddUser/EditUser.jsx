@@ -72,11 +72,7 @@ const EditUser = ({ formData, changeValue, app }) => {
 
   return (
     <div>
-      <Form
-        ref={form}
-        {...layout}
-        size='large'
-      >
+      <Form ref={form} {...layout} size='large'>
         {cusFields.map((item, index) => {
           return <CusFormItem key={index} {...item} {...FormItemProps} />
         })}

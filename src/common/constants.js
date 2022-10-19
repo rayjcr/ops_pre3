@@ -21,5 +21,31 @@ export const configStructure = {
     type: 'RADIO',
     list: ['user', 'admin', 'promotion']
   }
-  
 };
+
+export const internal_status = [
+  {
+    id: 'category',
+    label: 'Category',
+    // inputType: DROPDOWN,
+    required: true,
+  },
+  {
+    id: 'fd_number',
+    label: 'FD Number',
+    // inputType: NUMBER,
+    required: false,
+  },
+  {
+    id: 'jira_number',
+    label: 'Jira Number',
+    // inputType: TEXT,
+    required: false,
+  },
+  {
+    id: 'note',
+    label: 'Note',
+    // inputType: MULTI_LINE,
+    required: false,
+  },
+];

@@ -9,6 +9,7 @@ import NotFound from '../views/NotFound';
 import User from '../views/User';
 import AddUser from '../views/AddUser';
 import MerchantSearch from '../views/MerchantSearch';
+import Merchant from '../views/Merchant';
 
 const routes = [
     {
@@ -81,6 +82,7 @@ const routes = [
                         title: 'Add New Merchant',
                         key: 'addNewMerchant',
                         icon: <PlusOutlined />,
+                        element: <Merchant />,
                     },
                     {
                         path: 'vendorKey',
